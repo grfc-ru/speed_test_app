@@ -1,0 +1,76 @@
+name: speed_test_app
+description: Speed test app
+publish_to: 'none'
+version: 0.0.1
+
+environment:
+  sdk: '>=3.0.0-76.0.dev <4.0.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+  cupertino_icons: ^1.0.2
+  flutter_bloc: ^8.1.1
+  stream_bloc: ^0.5.1
+  # Navigation
+  go_router: ^6.0.1
+  # Debugers
+  logger: ^1.1.0
+  sentry_flutter: ^6.12.2
+  # Code generators
+  freezed_annotation: ^2.1.0
+  # WEB
+  dio: ^4.0.6
+  # Utils
+  path_provider: ^2.0.11
+  shared_preferences: ^2.0.15
+  package_info_plus: ^3.0.1
+  url_launcher: ^6.1.6
+  collection: ^1.16.0
+  # Chart
+  syncfusion_flutter_gauges: ^20.2.50
+  syncfusion_flutter_charts: ^20.2.50
+  # UI
+  avatar_glow: ^2.0.2
+  flutter_spinkit: ^5.1.0
+  another_flushbar: ^1.12.29
+  flutter_native_splash: ^2.2.11
+  # Localization
+  intl: ^0.17.0
+  flutter_localizations:
+    sdk: flutter
+
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^2.0.1
+  freezed: ^2.1.0+1
+  build_runner: ^2.1.5
+  dart_code_metrics:
+    git:
+      url: https://github.com/dart-code-checker/dart-code-metrics
+      ref: master
+  flutter_launcher_icons: ^0.11.0
+
+# `flutter pub run flutter_launcher_icons:main -f pubspec.yaml
+flutter_icons:
+  android: "launcher_icon"
+  ios: false
+  image_path: "assets/images/speed.png"
+
+flutter:
+  uses-material-design: true
+
+  assets:
+    - assets/images/
+
+flutter_native_splash:
+  background_image: "assets/images/splash.png"
+  image: assets/images/splash.png
+  fullscreen: true
+
+flutter_intl:
+  enabled: true
+  class_name: S
+  main_locale: ru
