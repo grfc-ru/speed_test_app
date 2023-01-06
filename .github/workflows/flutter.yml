@@ -20,7 +20,7 @@ jobs:
         run: flutter packages get
 
       - name: Build APK
-        run: flutter build apk --dart-define SENTRY=${{ secrets.SENTRY }}
+        run: flutter build apk --dart-define=SENTRY=${{ secrets.SENTRY }}
 
       - name: Build release
         uses: "marvinpinto/action-automatic-releases@latest"
