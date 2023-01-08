@@ -60,12 +60,13 @@ class MeasuringBloc extends StreamBloc<MeasuringEvent, MeasuringState> {
     _bytesOld = 0;
     _dloading = true;
 
-    Timer dTimer = Timer.periodic(const Duration(seconds: 1), (timer) async {
+    Timer dTimer =
+        Timer.periodic(const Duration(milliseconds: 250), (timer) async {
       if (_dloading) {
         var bDiff = _bytes - _bytesOld;
         _bytesOld = _bytes;
 
-        double speed = bDiff.toDouble() * 0.000008;
+        double speed = bDiff.toDouble() * 0.000008 * 4;
         _speed.add(speed);
         _downloadData.add(ChartData(count, speed));
         count++;
@@ -76,7 +77,7 @@ class MeasuringBloc extends StreamBloc<MeasuringEvent, MeasuringState> {
         add(const MeasuringEvent.upload());
       }
     });
-    Future.delayed(Duration(seconds: settings.timeMeasure + 1), () {
+    Future.delayed(Duration(seconds: settings.timeMeasure), () {
       if (_dloading) {
         cancelToken.cancel("Download finish");
         dTimer.cancel();
@@ -87,13 +88,15 @@ class MeasuringBloc extends StreamBloc<MeasuringEvent, MeasuringState> {
     });
 
     int nTime = DateTime.now().microsecondsSinceEpoch;
-    _dio
-        .get(
+    _dio.get(
       '${settings.url}/download',
-      onReceiveProgress: _dprogress,
+      onReceiveProgress: (int value, int _) {
+        if (_dloading) {
+          _bytes = value;
+        }
+      },
       cancelToken: cancelToken,
-    )
-        .then((value) {
+    ).then((value) {
       int tTime = DateTime.now().microsecondsSinceEpoch;
       double dif = (tTime - nTime).toDouble() / 1000000;
       double speed = _bytesOld.toDouble() / dif * 0.000008;
@@ -128,11 +131,12 @@ class MeasuringBloc extends StreamBloc<MeasuringEvent, MeasuringState> {
     _bytesOld = 0;
     _uloading = true;
 
-    Timer uTimer = Timer.periodic(const Duration(seconds: 1), (timer) async {
+    Timer uTimer =
+        Timer.periodic(const Duration(milliseconds: 250), (timer) async {
       if (_uloading) {
         var bDiff = _bytes - _bytesOld;
         _bytesOld = _bytes;
-        double speed = bDiff.toDouble() * 0.000008;
+        double speed = bDiff.toDouble() * 0.000008 * 4;
         _speed.add(speed);
         _uploadData.add(ChartData(count, speed));
         count++;
@@ -144,7 +148,7 @@ class MeasuringBloc extends StreamBloc<MeasuringEvent, MeasuringState> {
       }
     });
 
-    Future.delayed(Duration(seconds: settings.timeMeasure + 1), () async {
+    Future.delayed(Duration(seconds: settings.timeMeasure), () async {
       if (_uloading) {
         cancelToken.cancel("Upload finish");
         _uloading = false;
@@ -163,14 +167,16 @@ class MeasuringBloc extends StreamBloc<MeasuringEvent, MeasuringState> {
     });
 
     int nTime = DateTime.now().microsecondsSinceEpoch;
-    _dio
-        .post(
+    _dio.post(
       "${settings.url}/upload",
       data: file,
-      onSendProgress: _uprogress,
+      onSendProgress: (int value, int _) {
+        if (_uloading) {
+          _bytes = value;
+        }
+      },
       cancelToken: cancelToken,
-    )
-        .then((value) async {
+    ).then((value) async {
       int tTime = DateTime.now().microsecondsSinceEpoch;
       double dif = (tTime - nTime).toDouble() / 1000000;
       double speed = _bytesOld.toDouble() / dif * 0.000008;
@@ -205,18 +211,6 @@ class MeasuringBloc extends StreamBloc<MeasuringEvent, MeasuringState> {
 
   Stream<MeasuringState> _addError(String error) async* {
     yield MeasuringState.error(error);
-  }
-
-  void _dprogress(int value, int _) {
-    if (_dloading) {
-      _bytes = value;
-    }
-  }
-
-  void _uprogress(int value, int _) {
-    if (_uloading) {
-      _bytes = value;
-    }
   }
 
   Future<String> _path() async {

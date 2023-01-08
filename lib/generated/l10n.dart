@@ -50,20 +50,20 @@ class S {
     return Localizations.of<S>(context, S);
   }
 
-  /// `GSMSpeed`
+  /// `Speed test`
   String get app_name {
     return Intl.message(
-      'GSMSpeed',
+      'Speed test',
       name: 'app_name',
       desc: '',
       args: [],
     );
   }
 
-  /// `Измеритель скорости GSM`
+  /// `Измеритель скорости`
   String get main_title {
     return Intl.message(
-      'Измеритель скорости GSM',
+      'Измеритель скорости',
       name: 'main_title',
       desc: '',
       args: [],
@@ -95,36 +95,6 @@ class S {
     return Intl.message(
       'Генерируем файл с нагрузкой. Подождите.',
       name: 'flush_generate',
-      desc: '',
-      args: [],
-    );
-  }
-
-  /// `Ошибка работы c GSM`
-  String get error_gps {
-    return Intl.message(
-      'Ошибка работы c GSM',
-      name: 'error_gps',
-      desc: '',
-      args: [],
-    );
-  }
-
-  /// `Отсуствуют права у приложения на работу с GSM (телефон)`
-  String get permission_gsm {
-    return Intl.message(
-      'Отсуствуют права у приложения на работу с GSM (телефон)',
-      name: 'permission_gsm',
-      desc: '',
-      args: [],
-    );
-  }
-
-  /// `Отсуствуют права у приложения на работу с GPS`
-  String get permission_gps {
-    return Intl.message(
-      'Отсуствуют права у приложения на работу с GPS',
-      name: 'permission_gps',
       desc: '',
       args: [],
     );
@@ -165,16 +135,6 @@ class S {
     return Intl.message(
       'Не получилось отправить. Проверьте доступность сервера.',
       name: 'upload_fail',
-      desc: '',
-      args: [],
-    );
-  }
-
-  /// `Не получилось сохранить в базу`
-  String get db_save_fail {
-    return Intl.message(
-      'Не получилось сохранить в базу',
-      name: 'db_save_fail',
       desc: '',
       args: [],
     );
@@ -315,96 +275,6 @@ class S {
     return Intl.message(
       'Отправка (Мбит/c)',
       name: 'speed_upload',
-      desc: '',
-      args: [],
-    );
-  }
-
-  /// `Широта`
-  String get lat {
-    return Intl.message(
-      'Широта',
-      name: 'lat',
-      desc: '',
-      args: [],
-    );
-  }
-
-  /// `Долгота`
-  String get lon {
-    return Intl.message(
-      'Долгота',
-      name: 'lon',
-      desc: '',
-      args: [],
-    );
-  }
-
-  /// `Имя`
-  String get gsm_name {
-    return Intl.message(
-      'Имя',
-      name: 'gsm_name',
-      desc: '',
-      args: [],
-    );
-  }
-
-  /// `Код сети`
-  String get gsm_code_net {
-    return Intl.message(
-      'Код сети',
-      name: 'gsm_code_net',
-      desc: '',
-      args: [],
-    );
-  }
-
-  /// `Код оператора`
-  String get gsm_code_op {
-    return Intl.message(
-      'Код оператора',
-      name: 'gsm_code_op',
-      desc: '',
-      args: [],
-    );
-  }
-
-  /// `Тип сети`
-  String get gsm_type {
-    return Intl.message(
-      'Тип сети',
-      name: 'gsm_type',
-      desc: '',
-      args: [],
-    );
-  }
-
-  /// `Класс сети`
-  String get gsm_class {
-    return Intl.message(
-      'Класс сети',
-      name: 'gsm_class',
-      desc: '',
-      args: [],
-    );
-  }
-
-  /// `Уровень`
-  String get gsm_level {
-    return Intl.message(
-      'Уровень',
-      name: 'gsm_level',
-      desc: '',
-      args: [],
-    );
-  }
-
-  /// `дБм`
-  String get gsm_dbm {
-    return Intl.message(
-      'дБм',
-      name: 'gsm_dbm',
       desc: '',
       args: [],
     );

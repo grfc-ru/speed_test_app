@@ -41,28 +41,8 @@ class InfoPage extends StatelessWidget {
   }
 }
 
-class TextInfo extends StatefulWidget {
+class TextInfo extends StatelessWidget {
   const TextInfo({Key? key}) : super(key: key);
-
-  @override
-  State<TextInfo> createState() => _TextInfoState();
-}
-
-class _TextInfoState extends State<TextInfo> {
-  String version = '';
-
-  @override
-  void initState() {
-    super.initState();
-    _initPackageInfo();
-  }
-
-  Future<void> _initPackageInfo() async {
-    final info = await PackageInfo.fromPlatform();
-    setState(() {
-      version = info.version;
-    });
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -105,11 +85,17 @@ class _TextInfoState extends State<TextInfo> {
               leading: S.current.email,
             ),
           ),
-          CardInfo(
-            color: Colors.teal[200],
-            icon: Icons.info,
-            title: version,
-            leading: S.current.app_version,
+          FutureBuilder(
+            future: PackageInfo.fromPlatform(),
+            initialData: "",
+            builder: (context, snapshot) => CardInfo(
+              color: Colors.teal[200],
+              icon: Icons.info,
+              title: snapshot.data != ""
+                  ? (snapshot.data as PackageInfo).version
+                  : "",
+              leading: S.current.app_version,
+            ),
           ),
         ],
       ),

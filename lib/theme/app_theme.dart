@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'app_colors.dart';
+import 'app_style.dart';
 
 class AppTheme {
   static ThemeData get lightTheme => ThemeData(
@@ -10,9 +11,10 @@ class AppTheme {
         colorScheme: ColorScheme.fromSwatch().copyWith(
           secondary: Colors.blueGrey,
         ),
-        appBarTheme: const AppBarTheme(
+        appBarTheme: AppBarTheme(
           backgroundColor: mainColor,
           foregroundColor: Colors.white,
+          titleTextStyle: appBar,
         ),
       );
 }
