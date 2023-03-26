@@ -1,10 +1,11 @@
 name: speed_test_app
 description: Speed test app
 publish_to: 'none'
-version: 0.0.1
+version: 0.0.2
 
 environment:
-  sdk: '>=3.0.0-76.0.dev <4.0.0'
+  sdk: '>=2.17.0 <4.0.0'
+  flutter: '>=3.7.0'
 
 platforms:
   android:
@@ -13,35 +14,39 @@ dependencies:
   flutter:
     sdk: flutter
   cupertino_icons: ^1.0.2
-  flutter_bloc: ^8.1.1
+  flutter_bloc: ^8.1.2
   stream_bloc: ^0.5.1
   # Navigation
   go_router: ^6.0.1
   # Debugers
   logger: ^1.1.0
-  sentry_flutter: ^6.12.2
+  sentry_flutter: ^7.2.0
   # Code generators
   freezed_annotation: ^2.1.0
   # WEB
-  dio: ^4.0.6
+  dio: ^5.0.3
   # Utils
   path_provider: ^2.0.11
   shared_preferences: ^2.0.15
   package_info_plus: ^3.0.1
   url_launcher: ^6.1.6
   collection: ^1.16.0
+  geolocator: ^9.0.2
+  permission_handler: ^10.2.0
   # Chart
-  syncfusion_flutter_gauges: ^20.2.50
-  syncfusion_flutter_charts: ^20.2.50
+  syncfusion_flutter_gauges: ^21.1.35
+  syncfusion_flutter_charts: ^21.1.35
   # UI
   avatar_glow: ^2.0.2
   flutter_spinkit: ^5.1.0
   another_flushbar: ^1.12.29
   flutter_native_splash: ^2.2.11
   # Localization
-  intl: ^0.17.0
+  intl: ^0.18.0
   flutter_localizations:
     sdk: flutter
+  # Telephony
+  flutter_telephony_info: ^0.0.1
 
 
 dev_dependencies:
@@ -54,7 +59,7 @@ dev_dependencies:
     git:
       url: https://github.com/dart-code-checker/dart-code-metrics
       ref: master
-  flutter_launcher_icons: ^0.11.0
+  flutter_launcher_icons: ^0.12.0
 
 # `flutter pub run flutter_launcher_icons:main -f pubspec.yaml
 flutter_icons:

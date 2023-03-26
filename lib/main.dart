@@ -3,6 +3,7 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
 import 'package:logger/logger.dart';
+import 'package:permission_handler/permission_handler.dart';
 import 'package:sentry_flutter/sentry_flutter.dart';
 import 'package:stream_bloc/stream_bloc.dart';
 
@@ -15,6 +16,8 @@ void main() async {
 
   runZonedGuarded(
     () async {
+      await [Permission.phone, Permission.locationWhenInUse].request();
+
       Bloc.observer = AppBlocObserver();
       if (const String.fromEnvironment('SENTRY') != "") {
         await SentryFlutter.init(

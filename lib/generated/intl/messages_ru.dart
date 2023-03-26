@@ -28,11 +28,21 @@ class MessageLookup extends MessageLookupByLibrary {
         "download_fail": MessageLookupByLibrary.simpleMessage(
             "Не получилось скачать. Проверьте доступность сервера."),
         "email": MessageLookupByLibrary.simpleMessage("электропочта"),
+        "error_gps":
+            MessageLookupByLibrary.simpleMessage("Ошибка работы c GSM"),
         "error_net_class":
             MessageLookupByLibrary.simpleMessage("Не верный класс сети"),
         "flush_generate": MessageLookupByLibrary.simpleMessage(
             "Генерируем файл с нагрузкой. Подождите."),
+        "gsm_class": MessageLookupByLibrary.simpleMessage("Класс сети"),
+        "gsm_code_op": MessageLookupByLibrary.simpleMessage("Код оператора"),
+        "gsm_dbm": MessageLookupByLibrary.simpleMessage("дБм"),
+        "gsm_level": MessageLookupByLibrary.simpleMessage("Уровень"),
+        "gsm_name": MessageLookupByLibrary.simpleMessage("Имя"),
+        "gsm_type": MessageLookupByLibrary.simpleMessage("Тип сети"),
         "info_title": MessageLookupByLibrary.simpleMessage("Информация"),
+        "lat": MessageLookupByLibrary.simpleMessage("Широта"),
+        "lon": MessageLookupByLibrary.simpleMessage("Долгота"),
         "mail_to": MessageLookupByLibrary.simpleMessage(
             "mailto:k.bulanov@grfc.ru?subject=Мобильное%20приложение&body=Добрый%20день!"),
         "main_title":
@@ -43,6 +53,10 @@ class MessageLookup extends MessageLookupByLibrary {
             "Федеральное государственное унитарное предприятие «Главный радиочастотный центр»"),
         "org_title": MessageLookupByLibrary.simpleMessage("ФГУП «ГРЧЦ»"),
         "org_url": MessageLookupByLibrary.simpleMessage("https://grfc.ru/"),
+        "permission_gps": MessageLookupByLibrary.simpleMessage(
+            "Отсуствуют права у приложения на работу с GPS"),
+        "permission_gsm": MessageLookupByLibrary.simpleMessage(
+            "Отсуствуют права у приложения на работу с GSM (телефон)"),
         "permission_memory": MessageLookupByLibrary.simpleMessage(
             "Отсуствуют права у приложения на работу с памятью (хранилищем)"),
         "phone": MessageLookupByLibrary.simpleMessage("телефон"),

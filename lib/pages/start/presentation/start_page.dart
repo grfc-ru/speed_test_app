@@ -13,6 +13,8 @@ import 'widgets/background_widget.dart';
 import 'widgets/chart_widget.dart';
 import 'widgets/gauge_widget.dart';
 import 'widgets/generate_widget.dart';
+import 'widgets/gps_widget.dart';
+import 'widgets/gsm_widget.dart';
 
 class StartPage extends StatelessWidget {
   const StartPage({
@@ -45,6 +47,8 @@ class StartPage extends StatelessWidget {
         alignment: Alignment.center,
         children: <Widget>[
           const BackgroundWidget(),
+          const GpsWidget(),
+          const GsmWidget(),
           Column(
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
@@ -113,34 +117,34 @@ class StartPage extends StatelessWidget {
           BlocListener<MeasuringBloc, MeasuringState>(
             listener: (context, state) => state.maybeWhen(
               error: (error) {
-                Flushbar(
-                  message: error,
-                  icon: const Icon(
-                    Icons.info_outline,
-                    size: 28.0,
-                    color: Colors.red,
-                  ),
-                  leftBarIndicatorColor: Colors.red,
-                  duration: const Duration(seconds: 3),
-                  margin: const EdgeInsets.all(8),
-                  borderRadius: BorderRadius.circular(8),
-                ).show(context);
+                // Flushbar(
+                //   message: error,
+                //   icon: const Icon(
+                //     Icons.info_outline,
+                //     size: 28.0,
+                //     color: Colors.red,
+                //   ),
+                //   leftBarIndicatorColor: Colors.red,
+                //   duration: const Duration(seconds: 3),
+                //   margin: const EdgeInsets.all(8),
+                //   borderRadius: BorderRadius.circular(8),
+                // ).show(context);
 
                 return null;
               },
               block: (message) {
-                Flushbar(
-                  message: message,
-                  icon: const Icon(
-                    Icons.info_outline,
-                    size: 28.0,
-                    color: Colors.red,
-                  ),
-                  leftBarIndicatorColor: Colors.red,
-                  duration: const Duration(seconds: 3),
-                  margin: const EdgeInsets.all(8),
-                  borderRadius: BorderRadius.circular(8),
-                ).show(context);
+                // Flushbar(
+                //   message: message,
+                //   icon: const Icon(
+                //     Icons.info_outline,
+                //     size: 28.0,
+                //     color: Colors.red,
+                //   ),
+                //   leftBarIndicatorColor: Colors.red,
+                //   duration: const Duration(seconds: 3),
+                //   margin: const EdgeInsets.all(8),
+                //   borderRadius: BorderRadius.circular(8),
+                // ).show(context);
 
                 return null;
               },

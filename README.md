@@ -1,16 +1,11 @@
-# speed_test_app
+# GSM network speed meter
 
-A new Flutter project.
+## Application for measuring the speed of GSM network operators when transmitting HTTP traffic.
 
-## Getting Started
+The main difference in the work of this application from https://www.speedtest.net/:
+ - work exclusively via HTTP protocol;
+ - metering with the specified node in the network, not with the nearest node.
 
-This project is a starting point for a Flutter application.
+These differences allow to measure real speed of traffic which is exchanged by 99% of applications (HTTP) and exclude measure inside provider's local network.
 
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+![Initial](README/screen.png)

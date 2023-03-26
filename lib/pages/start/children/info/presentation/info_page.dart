@@ -61,12 +61,12 @@ class TextInfo extends StatelessWidget {
           ),
           GestureDetector(
             onTap: () {
-              launchUrl(Uri.parse('tel:+79036627016'));
+              launchUrl(Uri.parse('tel:+74957483898'));
             },
             child: CardInfo(
               color: Colors.red[200],
               icon: Icons.phone,
-              title: '+7 (903) 662-70-16',
+              title: '+7 (495) 748-38-98 доб. 87150',
               leading: S.current.phone,
             ),
           ),

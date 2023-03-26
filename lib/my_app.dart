@@ -7,6 +7,7 @@ import 'core/entities/measuring.dart';
 import 'core/entities/settings.dart';
 import 'pages/start/children/settings/domain/bloc/settings.dart';
 import 'pages/start/domain/bloc/measuring.dart';
+import 'pages/start/domain/bloc/params.dart';
 
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
@@ -28,6 +29,12 @@ class MyApp extends StatelessWidget {
       ],
       child: MultiBlocProvider(
         providers: [
+          BlocProvider(
+            lazy: false,
+            create: (context) => ParamsBloc(
+              measuring: context.read<Measuring>(),
+            )..add(const ParamsEvent.started()),
+          ),
           BlocProvider(
             create: (context) => MeasuringBloc(
               settings: context.read<Settings>(),
